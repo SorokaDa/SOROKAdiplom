@@ -64,6 +64,10 @@ if (mysqli_num_rows($res) > 0) {
 </div>
 
 
+<div class="site-content-container" >
+<?php require_once 'meals.php'; ?>
+</div>
+
 <div class="site-footer-container">
 <?php require_once 'footer.php'; ?>
 </div>
