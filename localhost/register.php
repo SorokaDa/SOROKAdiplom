@@ -32,35 +32,29 @@ if (mysqli_num_rows($res) > 0) {
 <meta name="viewport" content="width=device-width, initial-scale=0.30, minimum-scale=0, maximum-scale=5.0, user-scalable=yes" />
 <link rel="icon" href="favicon.ico?0" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico?0" type='image/x-icon' />
-<link rel="stylesheet" type="text/css" href="css/main.css?3" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
 <link href="css/datepicker.min.css" rel="stylesheet" type="text/css">
+<script defer src="./scripts/tablePicker.js"></script>
+<script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="scripts/datepicker.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.tablesorter.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("table").tablesorter();
+	});
+</script>
 </head>
 <body>
+<div class="form-style">
 
-<main class="site-wrapper-container">
-
-
-<div class="site-header-container">
-<?php require_once 'header.php'; ?>
-</div>
-
-
-
-<div class="site-menu-container">
-<?php require_once 'menu.php'; ?>
-</div>
-
-
-<div class="site-content-container">
-<div class="wow bounceInDown center">
-
+      
+        <div class="column-center">
         <h2>Регистрация</h2>
 
         <p>
-            Заполните форму ниже и нажмите кнопку "Зарегистрироваться".
+         Заполните форму ниже и нажмите кнопку "Зарегистрироваться".
         </p>
 
-        <div class="column-center">
             <form action="../_register.php" method="POST">
                 <input type="text" name="user_name" placeholder="Имя пользователя" /><br />
                 <input type="text" name="phone" placeholder="Телефон" /><br />
@@ -73,21 +67,5 @@ if (mysqli_num_rows($res) > 0) {
     </div>
 </div>
 
-<div class="site-footer-container">
-<?php require_once 'footer.php'; ?>
-</div>
-
-
-</main>
-
-<script defer src="./scripts/tablePicker.js"></script>
-<script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="scripts/datepicker.min.js"></script>
-<script type="text/javascript" src="scripts/jquery.tablesorter.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("table").tablesorter();
-	});
-</script>
 </body>
 </html>

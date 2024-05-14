@@ -1,4 +1,4 @@
-<div class="wow bounceInDown center reef">
+<!-- <div class="wow bounceInDown center reef">
 
 <h2>Регистрация</h2>
 
@@ -16,4 +16,4 @@
 </form>
 </div>
 
-</div>
+</div> -->
