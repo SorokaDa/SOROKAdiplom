@@ -16,10 +16,14 @@
 }
 
 body {
+  display: flex;
+  align-items: center;
   font: 14px/1.5 Arial;
-  color: #333;
+  background-color: #d3c4c4;
+  justify-content: center;
+  color: #b44646;
   position: relative;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   padding: 0;
   margin: 0px;
@@ -217,7 +221,14 @@ td {
   text-align: center;
   transition: 0.2s ease-in-out;
 }
+.form-style {
+  justify-content: center;
+}
 
+input{
+  padding: 8px;
+  margin-top: 4px;
+}
 .column-center {
   display: inline-block;
   text-align: center;

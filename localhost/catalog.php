@@ -45,7 +45,7 @@ if (mysqli_num_rows($res) > 0) {
 <main class="site-wrapper-container">
 
 
-<div class='light x1'></div>
+  <div class='light x1'></div>
   <div class='light x2'></div>
   <div class='light x3'></div>
   <div class='light x4'></div>
@@ -54,6 +54,8 @@ if (mysqli_num_rows($res) > 0) {
   <div class='light x7'></div>
   <div class='light x8'></div>
   <div class='light x9'></div>
+
+
 <div class="site-header-container">
 <?php require_once 'header.php'; ?>
 </div>

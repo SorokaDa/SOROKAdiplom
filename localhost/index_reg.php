@@ -44,6 +44,7 @@ if (mysqli_num_rows($res) > 0) {
 </div>
 
 
+
 <div class="site-menu-container">
 <?php require_once 'menu.php'; ?>
 </div>
@@ -54,6 +55,7 @@ if (mysqli_num_rows($res) > 0) {
 </div>
 
 
+
 <div class="site-footer-container">
 <?php require_once 'footer.php'; ?>
 </div>
@@ -62,15 +64,22 @@ if (mysqli_num_rows($res) > 0) {
 </div>
 
 <div class="modal-in">
-	<div class="modal-in__body">
-		<h1>ВХОД</h1>
-		<div class="modal-in__close">&#10006;</div>
-		<form action="./_login.php" method="POST">
-            <input type="text" name="user_email" placeholder="Email" required /><br />
-            <input type="password" name="user_pass" placeholder="Пароль" required/>
-            <button type="submit" />Войти</button>
-        </form>
-	</div>
+    <div class="modal-in__body">
+        <h2>Регистрация</h2>
+        <div class="modal-in__close">&#10006;</div>
+        <p>
+            Заполните форму ниже и нажмите кнопку "Зарегистрироваться".
+        </p>
+        <div class="column-center">
+            <form action="./_register.php" method="POST">
+                <input type="text" name="user_name" placeholder="Имя пользователя" /><br />
+                <input type="text" name="phone" placeholder="Телефон" /><br />
+                <input type="text" name="user_email" placeholder="Email" /><br />
+                <input type="password" name="user_pass" placeholder="Пароль от 8 до 30 символов" />
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 <script defer src="./scripts/tablePicker.js"></script>
