@@ -3,7 +3,7 @@
 session_start();
 require_once "_connect.php";
 
-
+// Checks autoriaztion
 $user_id = 0;
 if (isset($_COOKIE['ss_token'])) {
 	$user_token = $_COOKIE['ss_token'];
@@ -25,10 +25,10 @@ if (mysqli_num_rows($res) > 0) {
 <!doctype html>
 <html>
 <head>
-<title>Сотрудники</title>
+<title>Регистрация</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="description" content="Рыбья голова" />
+<meta name="description" content="Салон красоты Glamur" />
 <meta name="viewport" content="width=device-width, initial-scale=0.30, minimum-scale=0, maximum-scale=5.0, user-scalable=yes" />
 <link rel="icon" href="favicon.ico?0" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico?0" type='image/x-icon' />
@@ -36,51 +36,32 @@ if (mysqli_num_rows($res) > 0) {
 <link href="css/datepicker.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div class="cube"></div>
-   <div class="cube"></div>
-   <div class="cube"></div>
-   <div class="cube"></div>
-   <div class="cube"></div>
 
 <main class="site-wrapper-container">
 
-
-  <div class='light x1'></div>
-  <div class='light x2'></div>
-  <div class='light x3'></div>
-  <div class='light x4'></div>
-  <div class='light x5'></div>
-  <div class='light x6'></div>
-  <div class='light x7'></div>
-  <div class='light x8'></div>
-  <div class='light x9'></div>
-
-
+<!-- Header -->
 <div class="site-header-container">
-<?php require_once 'header.php'; ?>
+<?php require_once 'ss_header.php'; ?>
 </div>
+<!-- Header -->
 
-
+<!-- Menu -->
 <div class="site-menu-container">
-<?php require_once 'menu.php'; ?>
+<?php require_once 'ss_menu.php'; ?>
 </div>
+<!-- Menu -->
 
-<!-- <h2>Роллы</h2> -->
-<section class="catalog">
-  <div class="catalog__container">
-    <div class="catalog__title">Роллы</div>
-    <div class="catalog__items">
-       <?php require_once 'meals.php'; ?>
-    </div>
+<!-- Employees -->
+<div class="site-content-container">
+<?php require_once 'reg.php'; ?>
 </div>
-</section>
+<!-- Employees -->
 
-
-
+<!-- Footer -->
 <div class="site-footer-container">
-<?php require_once 'footer.php'; ?>
+<?php require_once 'ss_footer.php'; ?>
 </div>
-
+<!-- Footer -->
 
 </main>
 
