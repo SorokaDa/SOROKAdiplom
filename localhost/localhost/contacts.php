@@ -25,7 +25,7 @@ if (mysqli_num_rows($res) > 0) {
 <!doctype html>
 <html>
 <head>
-<title>Сотрудники</title>
+<title>Контакты</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="description" content="Рыбья голова" />
@@ -36,24 +36,8 @@ if (mysqli_num_rows($res) > 0) {
 <link href="css/datepicker.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div class="cube"></div>
-   <div class="cube"></div>
-   <div class="cube"></div>
-   <div class="cube"></div>
-   <div class="cube"></div>
 
 <main class="site-wrapper-container">
-
-
-  <div class='light x1'></div>
-  <div class='light x2'></div>
-  <div class='light x3'></div>
-  <div class='light x4'></div>
-  <div class='light x5'></div>
-  <div class='light x6'></div>
-  <div class='light x7'></div>
-  <div class='light x8'></div>
-  <div class='light x9'></div>
 
 
 <div class="site-header-container">
@@ -61,21 +45,30 @@ if (mysqli_num_rows($res) > 0) {
 </div>
 
 
+
 <div class="site-menu-container">
 <?php require_once 'menu.php'; ?>
 </div>
 
-<!-- <h2>Роллы</h2> -->
-<section class="catalog">
-  <div class="catalog__container">
-    <div class="catalog__title">Роллы</div>
-    <div class="catalog__items">
-       <?php require_once 'meals.php'; ?>
-    </div>
+
+
+<div class="site-content-container">
+
+<h2 class="up _a-hide">Контакты</h2>
+<div class="contact__items">
+   <div class="contscts__left">
+      <p>Телефон: <span>+37529241231</span></p>
+      <p>Адресс: <span>улица Ожешко 22</span></p>
+      <p>Почта: <span>admin@admin.com</span></p>
+   </div>
+   <div class="contacts__right">
+   <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A2ba493289b15b1b72f16651dc8de3e5b89cfeae37e83732b99fc2c00fe1a9b4b&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+   </div>
 </div>
-</section>
 
 
+
+</div>
 
 <div class="site-footer-container">
 <?php require_once 'footer.php'; ?>

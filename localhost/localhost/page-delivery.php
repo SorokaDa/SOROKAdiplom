@@ -3,7 +3,7 @@
 session_start();
 require_once "_connect.php";
 
-
+// Checks autoriaztion
 $user_id = 0;
 if (isset($_COOKIE['ss_token'])) {
 	$user_token = $_COOKIE['ss_token'];
@@ -28,7 +28,7 @@ if (mysqli_num_rows($res) > 0) {
 <title>Доставка</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="description" content="Рыбья голова" />
+<meta name="description" content="Салон красоты Glamur" />
 <meta name="viewport" content="width=device-width, initial-scale=0.30, minimum-scale=0, maximum-scale=5.0, user-scalable=yes" />
 <link rel="icon" href="favicon.ico?0" type="image/x-icon" />
 <link rel="shortcut icon" href="favicon.ico?0" type='image/x-icon' />
@@ -39,25 +39,21 @@ if (mysqli_num_rows($res) > 0) {
 
 <main class="site-wrapper-container">
 
-
+<!-- Header -->
 <div class="site-header-container">
-<?php require_once 'header.php'; ?>
+<?php require_once 'ss_header.php'; ?>
 </div>
+<!-- Header -->
 
-
-
+<!-- Menu -->
 <div class="site-menu-container">
-<?php require_once 'menu.php'; ?>
+<?php require_once 'ss_menu.php'; ?>
 </div>
+<!-- Menu -->
 
-
-
+<!-- О нас  -->
 <div class="site-content-container">
-<h2 class="up" >Зона Доставки</h2>
-<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A241610cf983d84da1d5c290cd6644eb0436aeeff4f36075fb4382d31308e1d8f&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
-   <div>
 
-</div>
 <h2 class="up _a-hide">Правила доставки</h2>
 <p style='font-size: 24px;'>
 Правила доставки для суши бара "Рыбья Голова" могут различаться в зависимости от филиала и региона, но обычно следующие правила являются общими:
@@ -79,7 +75,7 @@ if (mysqli_num_rows($res) > 0) {
 </p>
 
 </div>
-
+<!-- О нас  -->
 
 <div class="site-content-container" >
 
@@ -87,21 +83,25 @@ if (mysqli_num_rows($res) > 0) {
 <h2 class="up _a-hide">Акция!</h2>
 <img class="img-event" src="images/event.png" alt="">
 <p class="up _a-hide">
-Акция на суши для суши бара "Рыбья голова" предусматривает скидку в размере 20% на все виды суши при заказе на сумму от 1000 рублей. Акция действует в будние дни с понедельника по четверг включительно, с 12:00 до 16:00. Для участия в акции необходимо при оформлении заказа сообщить о намерении воспользоваться скидкой и предъявить специальный промокод, который можно получить на сайте суши бара или в социальных сетях. Акция не суммируется с другими акциями и предложениями суши бара "Рыбья голова".
+Едва переступив порог нашего салона, Вы понимаете, что попали в особый мир - мир изысканности, утонченности, красоты, стиля. Приятный интерьер - визитная карточка салона: необыкновенно гармоничная обстановка не только зарождает в Вас настроение и желание преобразиться, но и создает уверенность, что вы действительно попали в руки настоящих мастеров стиля. Это сказочное место для отдыха в центре города где Вы можете приятно и с пользой провести время.
 </p>
 <p class="up _a-hide" style='margin-bottom: 50px;'>
-НЕ ОТКАЗЫВАЙТЕ СЕБЕ В УДОВОЛЬСТВИИ С ВКУСНЕЙШИМИ СУШИ !
+НЕ ОТКАЗЫВАЙТЕ СЕБЕ В УДОВОЛЬСТВИИ С САЛОНОМ КРАСОТЫ !
 </p>
+<h2 class="up" >Как к нам добраться</h2>
+<iframe  src="https://yandex.ru/map-widget/v1/?um=constructor%3A2ba493289b15b1b72f16651dc8de3e5b89cfeae37e83732b99fc2c00fe1a9b4b&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+   <div>
 
+</div>
 </div>
 
 
 
-
+<!-- Footer -->
 <div class="site-footer-container">
-<?php require_once 'footer.php'; ?>
+<?php require_once 'ss_footer.php'; ?>
 </div>
-
+<!-- Footer -->
 
 </main>
 

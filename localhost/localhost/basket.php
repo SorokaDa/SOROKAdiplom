@@ -4,6 +4,7 @@ session_start();
 require_once "_connect.php";
 
 
+
 $user_id = 0;
 if (isset($_COOKIE['ss_token'])) {
 	$user_token = $_COOKIE['ss_token'];
@@ -21,7 +22,30 @@ if (mysqli_num_rows($res) > 0) {
 	$user_type = $row['type'];
 }
 
+
+// Параметры подключения к базе данных
+$servername = "localhost";
+$username = "your_username";
+$password = "your_password";
+$dbname = "your_database";
+
+// Создаем соединение
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Проверяем соединение
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// SQL-запрос для получения данных из таблицы baskets
+$sql = "SELECT id, user_id, product_id, quantity, created_at FROM baskets";
+$result = $conn->query($sql);
+
+if (!$result) {
+    die("Error executing query: " . $conn->error);
+}
 ?>
+
 <!doctype html>
 <html>
 <head>
@@ -53,30 +77,77 @@ if (mysqli_num_rows($res) > 0) {
 
 
 <div class="site-content-container">
-<h2 class="up" >Зона Доставки</h2>
-<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A241610cf983d84da1d5c290cd6644eb0436aeeff4f36075fb4382d31308e1d8f&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
-   <div>
 
-</div>
-<h2 class="up _a-hide">Правила доставки</h2>
-<p style='font-size: 24px;'>
-Правила доставки для суши бара "Рыбья Голова" могут различаться в зависимости от филиала и региона, но обычно следующие правила являются общими:
-</p>
-<p>
-<ul class="services__items">
-<li>Минимальная сумма заказа. Обычно для доставки требуется минимальная сумма заказа, которая может различаться в зависимости от филиала. Обычно эта сумма составляет от 500 до 1000 рублей.
-</li>
-<li>Заказ заранее. Для того чтобы заказ был готов к нужному времени, рекомендуется оформлять его заранее, обычно за несколько часов до желаемого времени доставки.
-</li>
-<li>Доставка по городу. Суши бар "Рыбья Голова" доставляет заказы по городу. Стоимость доставки может зависеть от удаленности места доставки, но обычно она не превышает 300-500 рублей..</li>
-<li>Оплата заказа. Обычно оплата заказа производится наличными или банковской картой при получении заказа. Также возможна оплата через интернет-платежи.
-</li>
-<li>Качество еды. Суши бар "Рыбья Голова" гарантирует высокое качество еды и доставки. Если у клиента возникли какие-либо претензии по качеству еды или доставки, он может связаться с рестораном и решить вопросы.
-</li>
-<li>Возврат и обмен товара. Если клиент обнаружил какие-то дефекты в заказе, то он может обменять его на новый или вернуть деньги. Для этого необходимо связаться с рестораном и обсудить ситуацию.</li>
-<li>Обращаем внимание, что правила доставки и оплаты могут незначительно различаться в зависимости от конкретного филиала. Лучше всего уточнять эти моменты на официальном сайте суши бара "Рыбья Голова" или при оформлении заказа по телефону.</li>
-</ul>
-</p>
+
+// Создаем соединение
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Проверяем соединение
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// SQL-запрос для получения данных из таблицы baskets
+$sql = "SELECT id, user_id, product_id, quantity, created_at FROM baskets";
+$result = $conn->query($sql);
+
+if (!$result) {
+    die("Error executing query: " . $conn->error);
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Информация о заказах</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Информация о заказах</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>User ID</th>
+            <th>Product ID</th>
+            <th>Quantity</th>
+            <th>Date Created</th>
+        </tr>
+        <?php
+        if ($result->num_rows > 0) {
+            // Вывод данных каждой строки
+            while($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>" . $row["id"] . "</td>
+                        <td>" . $row["user_id"] . "</td>
+                        <td>" . $row["product_id"] . "</td>
+                        <td>" . $row["quantity"] . "</td>
+                        <td>" . $row["created_at"] . "</td>
+                      </tr>";
+            }
+        } else {
+            echo "<tr><td colspan='5'>No orders found</td></tr>";
+        }
+        ?>
+    </table>
+    <?php
+    // Закрываем соединение с базой данных
+    if ($conn !== null) {
+        $conn->close();
+    }
+    ?>
+</body>
+</html>
 
 </div>
 
@@ -92,7 +163,11 @@ if (mysqli_num_rows($res) > 0) {
 <p class="up _a-hide" style='margin-bottom: 50px;'>
 НЕ ОТКАЗЫВАЙТЕ СЕБЕ В УДОВОЛЬСТВИИ С ВКУСНЕЙШИМИ СУШИ !
 </p>
+<h2 class="up" >Как к нам добраться</h2>
+<iframe  src="https://yandex.ru/map-widget/v1/?um=constructor%3A2ba493289b15b1b72f16651dc8de3e5b89cfeae37e83732b99fc2c00fe1a9b4b&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
+   <div>
 
+</div>
 </div>
 
 
